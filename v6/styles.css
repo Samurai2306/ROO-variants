@@ -25,7 +25,7 @@ h2 { font-size: clamp(1.45rem, 2.4vw, 2rem); }
 p { margin: 0 0 0.75rem; }
 a { color: inherit; }
 button, input, select, textarea { font: inherit; }
-.ico { width: 1.15em; height: 1.15em; fill: currentColor; flex: 0 0 auto; }
+svg.ico { width: 1.05rem; height: 1.05rem; max-width: 1.05rem; max-height: 1.05rem; display: block; overflow: hidden; flex: 0 0 auto; fill: currentColor; }
 :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
 .site-header :focus-visible { outline-color: var(--header-text); }
 .skip { position: absolute; left: 0.5rem; top: -3rem; background: var(--surface); color: var(--text); padding: 0.4rem 0.6rem; z-index: 80; }
@@ -36,7 +36,8 @@ button, input, select, textarea { font: inherit; }
 .brand { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; min-width: 0; }
 .brand-name { font-size: 1.05rem; }
 .mark { min-width: 2.75rem; min-height: 2.75rem; display: inline-grid; place-items: center; border: 1px solid currentColor; }
-.header-tools, .variant-nav, .nav-row, .actions, .filters, .symbol-row, .player { display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; }
+.header-tools, .variant-nav, .nav-row, .filters, .player { display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; }
+.brand-name { display: block; max-width: 12rem; font-size: 0.98rem; line-height: 1.2; font-weight: 600; }
 .variant-nav a, .register-link, .nav-toggle, .button, .filters button, .symbol-row button, .nav-row button, .cats button, .cats a { min-height: 2.75rem; display: inline-flex; align-items: center; justify-content: center; gap: 0.35rem; }
 .variant-nav a { min-width: 2.75rem; text-decoration: none; border: 1px solid var(--header-line); color: var(--header-text); }
 .variant-nav a[aria-current="page"] { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
@@ -52,10 +53,19 @@ button, input, select, textarea { font: inherit; }
 .block { margin: 2rem 0; }
 .button { background: var(--accent); color: var(--accent-text); border: 1px solid var(--accent); padding: 0 1rem; cursor: pointer; text-decoration: none; }
 .news-list, .partner-list, .plain, .rows, .stack, .cats, .threads, .issues, .rooms { list-style: none; margin: 0; padding: 0; }
-.news-list a, .partner-list a, .threads a, .row a, .row button { display: flex; flex-direction: column; align-items: flex-start; gap: 0.2rem; width: 100%; text-align: left; text-decoration: none; background: transparent; color: inherit; border: 0; border-bottom: 1px solid var(--border); padding: 0.9rem 0; cursor: pointer; }
-.meta { display: inline-flex; gap: 0.35rem; align-items: center; color: var(--muted); }
-.plain a { display: inline-flex; min-height: 2.75rem; align-items: center; }
-.actions a { min-height: 2.75rem; display: inline-flex; align-items: center; }
+.news-list, .partner-list, .threads, .rows, .rooms { background: var(--surface); border: 1px solid var(--border); }
+.news-list a, .partner-list a, .threads a, .row a, .row button { display: grid; grid-template-columns: minmax(11rem, 16rem) minmax(0, 1.15fr) minmax(0, 1.25fr); align-items: center; gap: 0.35rem 1rem; width: 100%; text-align: left; text-decoration: none; background: transparent; color: inherit; border: 0; border-bottom: 1px solid var(--border); padding: 1rem 1.1rem; cursor: pointer; }
+.partner-list a { grid-template-columns: minmax(14rem, 1.15fr) minmax(0, 1fr); }
+.news-list li:last-child a, .partner-list li:last-child a, .threads li:last-child a, .rows li:last-child a, .rows li:last-child button { border-bottom: 0; }
+.news-list a:hover, .partner-list a:hover, .threads a:hover, .row a:hover, .row button:hover, .plain a:hover { background: rgba(28, 28, 28, 0.04); }
+.meta, .badge { display: inline-flex; gap: 0.35rem; align-items: center; color: var(--muted); }
+.plain { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.6rem; background: transparent; border: 0; }
+.plain a { display: flex; align-items: center; min-height: 4.6rem; padding: 0.95rem 1rem; border: 1px solid var(--border); background: var(--surface); text-decoration: none; }
+.rail .plain { grid-template-columns: 1fr; }
+.rail .plain a { min-height: 2.9rem; align-items: center; }
+.actions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.6rem; margin-top: 1.15rem; }
+.actions a, .actions .button { min-height: 4.4rem; display: flex; align-items: center; justify-content: flex-start; padding: 0.95rem 1rem; border: 1px solid var(--border); background: var(--surface); color: inherit; text-decoration: none; text-align: left; }
+.actions .button { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
 form, fieldset { display: grid; gap: 0.65rem; }
 fieldset { border: 1px solid var(--border); margin: 0 0 1rem; padding: 1rem; }
 label { display: grid; gap: 0.3rem; }
@@ -69,19 +79,20 @@ textarea { min-height: 8rem; }
 .footer-grid { display: grid; grid-template-columns: 1.2fr 0.8fr 1.2fr; gap: 1.4rem; }
 .footer-grid nav { display: grid; align-content: start; }
 .footer-grid nav a { min-height: 2.4rem; display: inline-flex; align-items: center; }
-.symbol-row button { background: transparent; color: inherit; border: 1px solid var(--border); padding: 0 0.7rem; cursor: pointer; }
+.symbol-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.45rem; align-content: start; }
+.symbol-row button { width: 100%; justify-content: flex-start; background: transparent; color: inherit; border: 1px solid var(--border); padding: 0 0.7rem; cursor: pointer; }
 dialog { width: min(42rem, calc(100% - 1.5rem)); max-height: calc(100% - 2rem); overflow: auto; border: 1px solid var(--border); background: var(--surface); color: var(--text); padding: 1.1rem; }
 dialog::backdrop { background: rgba(12, 14, 18, 0.62); }
-.dialog-close { margin-left: auto; background: transparent; color: inherit; border: 1px solid var(--border); padding: 0 0.7rem; cursor: pointer; }
+.dialog-close { float: right; display: inline-flex; align-items: center; gap: 0.45rem; margin: 0 0 0.75rem 0.8rem; background: transparent; color: inherit; border: 1px solid var(--border); min-height: 2.75rem; padding: 0 0.8rem; cursor: pointer; }
 .bento { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.6rem; margin: 1rem 0 2rem; }
 .cell { min-height: 8.5rem; padding: 1rem; display: flex; flex-direction: column; justify-content: flex-end; gap: 0.25rem; text-decoration: none; background: var(--surface); color: var(--text); border: 1px solid var(--border); }
 .cell-hero { grid-column: span 2; grid-row: span 2; min-height: 18rem; }
 .tasks { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 0.8rem; margin: 1rem 0; }
-.panel { min-height: 11rem; padding: 1.1rem; display: flex; flex-direction: column; justify-content: flex-end; gap: 0.3rem; text-align: left; text-decoration: none; background: var(--surface); color: var(--text); border: 1px solid var(--border); cursor: pointer; }
+.panel { min-height: 15rem; padding: 1.25rem; display: flex; flex-direction: column; justify-content: flex-end; gap: 0.35rem; text-align: left; text-decoration: none; background: var(--surface); color: var(--text); border: 1px solid var(--border); cursor: pointer; }
 .panel-main { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
-.cats { display: grid; gap: 0.4rem; }
+.cats { display: grid; grid-template-columns: 1fr 1fr; gap: 0.55rem; }
 .cats button, .cats a { justify-content: flex-start; width: 100%; padding: 0 0.8rem; background: var(--surface); color: var(--text); border: 1px solid var(--border); text-decoration: none; cursor: pointer; }
-.table-wrap { overflow-x: auto; }
+.table-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--border); padding: 0.35rem 1rem 0.5rem; }
 .spec { width: 100%; border-collapse: collapse; }
 .spec th, .spec td { text-align: left; padding: 0.75rem 0.4rem; border-bottom: 1px solid var(--border); }
 .spec-hero { display: grid; grid-template-columns: 1.4fr 0.6fr; gap: 2rem; align-items: center; }
@@ -97,25 +108,27 @@ dialog::backdrop { background: rgba(12, 14, 18, 0.62); }
 .pending, .pdf-slot { border: 1px solid var(--border); padding: 1rem; margin: 0.8rem 0; }
 .pdf-slot { min-height: 8rem; display: grid; place-items: center; }
 .issue { border-bottom: 1px solid var(--border); padding: 0.8rem 0; }
-.finder input[type="search"] { font-size: 1.2rem; }
 .filters { margin: 0.5rem 0; }
 .filters button { background: transparent; color: var(--text); border: 1px solid var(--border); padding: 0 0.75rem; cursor: pointer; }
 .filters button[aria-pressed="true"] { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
-.badge { display: inline-flex; gap: 0.3rem; align-items: center; }
-.media-row { padding: 0; margin: 0; display: grid; gap: 0.4rem; }
-.media-row li { border-bottom: 1px solid var(--border); padding: 0.45rem 0; }
+.rooms { padding: 0.9rem 1rem 0.9rem 1.7rem; margin-bottom: 1rem; }
+.rooms ol { margin: 0.3rem 0 0.45rem; }
+.media-row { padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.6rem; }
+.media-row li { list-style: none; border: 1px solid var(--border); background: var(--surface); padding: 1.15rem; min-height: 8.5rem; }
 button:disabled { color: inherit; background: transparent; border: 1px solid var(--border); cursor: not-allowed; }
 @media (max-width: 56rem) {
-  .footer-grid, .tasks, .spec-hero, .front, .facts div { grid-template-columns: 1fr; }
+  .footer-grid, .tasks, .spec-hero, .front, .facts div, .actions, .plain, .media-row { grid-template-columns: 1fr 1fr; }
   .rail { border-left: 0; padding-left: 0; border-top: 1px solid var(--border); padding-top: 1rem; }
+  .rail .plain { grid-template-columns: 1fr; }
   .bento { grid-template-columns: 1fr 1fr; }
+  .news-list a, .threads a, .row a, .row button { grid-template-columns: 1fr; align-items: start; }
 }
 @media (max-width: 48rem) {
   .nav-toggle { display: inline-flex; }
   .site-nav { display: none; }
   .site-nav.is-open { display: block; }
   .site-nav.is-open .nav-row { flex-direction: column; align-items: flex-start; padding-bottom: 0.6rem; }
-  .bento { grid-template-columns: 1fr; }
+  .bento, .actions, .plain, .media-row, .cats, .symbol-row { grid-template-columns: 1fr; }
   .cell, .cell-hero { grid-column: auto; grid-row: auto; min-height: 7rem; }
 }
 @media (prefers-reduced-motion: reduce) {
