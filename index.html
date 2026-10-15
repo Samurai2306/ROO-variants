@@ -3,40 +3,54 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Демонстрационные варианты оформления</title>
+  <title>Шесть вариантов оформления</title>
   <style>
     :root { color-scheme: light; }
     * { box-sizing: border-box; }
-    body { margin: 0; background: #f4f1ea; color: #1c1c1c; font-family: "Segoe UI", system-ui, sans-serif; font-size: 1.0625rem; line-height: 1.5; overflow-wrap: anywhere; }
-    main { width: min(64rem, calc(100% - 2rem)); margin: 2.5rem auto 3rem; }
-    h1 { font-family: Georgia, "Times New Roman", serif; font-weight: 500; font-size: clamp(2rem, 5vw, 3rem); line-height: 1.15; margin: 0 0 0.6rem; }
+    body { margin: 0; background: #f4f1ea; color: #1c1c1c; font-family: "Segoe UI", system-ui, sans-serif; font-size: 1.125rem; line-height: 1.5; overflow-x: clip; overflow-wrap: anywhere; }
+    main { width: min(68rem, calc(100% - 2rem)); margin: 2.5rem auto 3rem; }
+    h1 { font-family: Georgia, "Times New Roman", serif; font-weight: 500; font-size: clamp(2.4rem, 6vw, 4.4rem); line-height: 1.05; margin: 0 0 0.6rem; }
     .lead { max-width: 40rem; }
-    ol { margin: 1.4rem 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.8rem; }
-    li a { display: grid; grid-template-columns: 4.5rem 1fr; gap: 0.85rem; align-items: center; min-height: 6.5rem; padding: 0.7rem; border: 1px solid #1c1c1c; background: #fff; text-decoration: none; color: inherit; }
+    ol { list-style: none; margin: 1.6rem 0 0; padding: 0; display: grid; gap: 0.8rem; }
+    li a { display: grid; grid-template-columns: 11rem 1fr; gap: 1rem; align-items: center; min-height: 7.5rem; padding: 0.7rem; text-decoration: none; color: inherit; border: 1px solid #1c1c1c; background: #fff; }
     li a:hover { background: #f7f4ee; }
     :focus-visible { outline: 3px solid #1c1c1c; outline-offset: 3px; }
-    b { display: block; font-size: 1.15rem; margin-bottom: 0.2rem; }
-    .swatch { min-height: 4.5rem; border: 1px solid #1c1c1c; }
-    .v1 { background: linear-gradient(#161e2f 0 55%, #f3eee6 55% 78%, #6b1c2e 78%); }
-    .v2 { background: #1b2632; box-shadow: inset 0 0 0 8px #eee9df, inset 0 0 0 9px #8c4030; }
-    .v3 { background: #f4f7fb; box-shadow: inset 0 0 0 10px #0b1521, inset 0 0 0 18px #24428f; }
-    .v4 { background: #f6f2f1; box-shadow: inset 0 12px 0 #3a4a3f, inset 0 -12px 0 #eae2d3; }
-    .v5 { background: repeating-linear-gradient(#f2edea, #f2edea 7px, rgba(90, 115, 128, 0.55) 8px), linear-gradient(#1c3e4e, #1c3e4e); background-size: 100% 100%, 100% 8px; background-repeat: no-repeat; }
-    .v6 { background: radial-gradient(circle at 30% 30%, #5c5470, transparent 55%), radial-gradient(circle at 80% 20%, #c8ced6, #272a3b 70%); }
-    @media (max-width: 40rem) { ol { grid-template-columns: 1fr; } }
+    b { display: block; font-size: 1.35rem; margin-bottom: 0.25rem; }
+    .preview { min-height: 6rem; border: 1px solid #1c1c1c; overflow: hidden; display: grid; }
+    .v1 { background: #f6f4f0; grid-template-rows: 1.4rem 1fr auto; }
+    .v1 i, .v3 i, .v5 i, .v6 i { display: block; }
+    .v1 .bar { background: #1c2430; }
+    .v1 .body { margin: 0.45rem; height: 0.7rem; background: #1a1d23; width: 70%; }
+    .v1 .btn { margin: 0.45rem; height: 0.7rem; width: 2.2rem; background: #8d1d2c; }
+    .v2 { background: #1b2632; grid-template-columns: 1.4fr 1fr; gap: 0.3rem; padding: 0.35rem; }
+    .v2 span { background: #f3efe6; border: 1px solid #8c4030; }
+    .v2 span:first-child { grid-row: span 2; }
+    .v3 { background: #f4f7fb; padding: 0.4rem; align-content: center; gap: 0.25rem; }
+    .v3 i { height: 0.35rem; background: #0b1521; }
+    .v3 i:nth-child(2) { width: 55%; background: #24428f; }
+    .v4 { background: #efe8df; place-items: center; padding: 0.45rem; grid-template-columns: 1.2fr 0.8fr; gap: 0.35rem; }
+    .v4 span { display: block; min-height: 4.2rem; background: #f7f3ee; border: 1px solid #cfc6ba; border-radius: 0.7rem; box-shadow: 4px 4px 8px #ddd4c8, -3px -3px 8px #fff; }
+    .v4 span:first-child { background: #2f3d34; }
+    .v5 { background: #f7f4f1; padding: 0.5rem; align-content: start; gap: 0.35rem; }
+    .v5 i { height: 0.45rem; border-bottom: 2px solid #1c3e4e; }
+    .v5 i:first-child { height: 0.8rem; }
+    .v6 { background: #f7f4f0; padding: 0.45rem; align-content: end; }
+    .v6 i { height: 0.55rem; background: #1c1c1c; margin-top: 0.3rem; }
+    .v6 i:first-child { width: 4px; height: 100%; background: #1c1c1c; margin: 0; }
+    @media (max-width: 40rem) { li a { grid-template-columns: 1fr; } .preview { min-height: 5rem; } }
   </style>
 </head>
 <body>
   <main>
     <h1>Шесть вариантов оформления</h1>
-    <p class="lead">Демонстрационные главные страницы, не действующий сайт организации. Данные форм никуда не отправляются.</p>
+    <p class="lead">Демонстрационные варианты будущего сайта. Данные форм никуда не отправляются.</p>
     <ol>
-      <li><a href="v1/"><span class="swatch v1" aria-hidden="true"></span><span><b>1. Официальный</b>Тёмно-синяя шапка, бордо на кнопке помощи.</span></a></li>
-      <li><a href="v2/"><span class="swatch v2" aria-hidden="true"></span><span><b>2. Музейный</b>Бумажные карточки на тёмно-синем поле.</span></a></li>
-      <li><a href="v3/"><span class="swatch v3" aria-hidden="true"></span><span><b>3. Технический</b>Синяя шкала и чёткая сетка.</span></a></li>
-      <li><a href="v4/"><span class="swatch v4" aria-hidden="true"></span><span><b>4. Сервисный</b>Помощь, вступление и приёмная сразу на экране.</span></a></li>
-      <li><a href="v5/"><span class="swatch v5" aria-hidden="true"></span><span><b>5. Архивный</b>Бумага, уголь и чертёжная сетка.</span></a></li>
-      <li><a href="v6/"><span class="swatch v6" aria-hidden="true"></span><span><b>6. Новостной</b>Крупный заголовок и серо-фиолетовое пятно.</span></a></li>
+      <li><a href="v1/"><span class="preview v1" aria-hidden="true"><i class="bar"></i><i class="body"></i><i class="btn"></i></span><span><b>01 Официальный</b>Графитовая шапка, светлое поле, красный акцент на обращении.</span></a></li>
+      <li><a href="v2/"><span class="preview v2" aria-hidden="true"><span></span><span></span><span></span></span><span><b>02 Музейный</b>Бенто наследия: бумажные ячейки на тёмно-синем поле.</span></a></li>
+      <li><a href="v3/"><span class="preview v3" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span><b>03 Технический</b>Спецификация: таблица направлений и подписанная шкала.</span></a></li>
+      <li><a href="v4/"><span class="preview v4" aria-hidden="true"><span></span><span></span></span><span><b>04 Сервисный</b>Мягкие панели: обращение и регистрация на первом экране.</span></a></li>
+      <li><a href="v5/"><span class="preview v5" aria-hidden="true"><i></i><i></i><i></i></span><span><b>05 Архивный</b>Опись: поиск, фильтры и строки материалов.</span></a></li>
+      <li><a href="v6/"><span class="preview v6" aria-hidden="true"><i></i><i></i><i></i></span><span><b>06 Новостной</b>Хроника: одна публикация и узкая колонка чтения.</span></a></li>
     </ol>
   </main>
 </body>
