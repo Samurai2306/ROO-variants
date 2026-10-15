@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Живая хроника — прототип РОО</title>
+  <title>Новостной — прототип РОО</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -13,55 +13,26 @@
       <a class="brand" href="#main"><span class="mark">РОО</span><span class="brand-name">Ветераны метрологической службы</span></a>
       <div class="header-tools">
         <nav class="variant-nav" aria-label="Варианты оформления">
-          <details class="variant-switch">
-            <summary aria-label="Варианты оформления"><span class="burger-lines" aria-hidden="true"></span></summary>
-            <div class="variant-panel">
-              <p class="variant-current">Живая хроника</p>
-              <a href="../">Все варианты</a>
-              <a href="../v1/">1 · Достоинство и преемственность</a>
-              <a href="../v2/">2 · История, которую можно исследовать</a>
-              <a href="../v3/">3 · Инженерная ясность</a>
-              <a href="../v4/">4 · Помощь без барьеров</a>
-              <a href="../v5/">5 · Архив инженерной эпохи</a>
-              <a href="../v6/" aria-current="page">6 · Живая хроника</a>
-            </div>
-          </details>
+          <span class="variant-current">Новостной</span>
+          <a href="../v1/" aria-label="1, Официальный">1</a>
+          <a href="../v2/" aria-label="2, Музейный">2</a>
+          <a href="../v3/" aria-label="3, Технический">3</a>
+          <a href="../v4/" aria-label="4, Сервисный">4</a>
+          <a href="../v5/" aria-label="5, Архивный">5</a>
+          <a href="../v6/" aria-current="page" aria-label="6, Новостной">6</a>
+          <a class="variant-all" href="../">Все варианты</a>
         </nav>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Меню</button>
       </div>
     </div>
     <nav class="site-nav" id="site-nav" aria-label="Основная навигация">
       <div class="wrap nav-row">
-        <details class="drop" name="site-menu">
-          <summary>Организация</summary>
-          <div class="drop-panel">
-            <a href="#about">Об организации</a>
-            <a href="#activity">Деятельность</a>
-            <a href="#partners">Партнёры</a>
-          </div>
-        </details>
-        <details class="drop" name="site-menu">
-          <summary>Помощь</summary>
-          <div class="drop-panel">
-            <a href="#help">Помощь</a>
-            <a href="#reception">Приёмная</a>
-            <a href="#join">Вступление</a>
-          </div>
-        </details>
-        <details class="drop" name="site-menu">
-          <summary>Наследие</summary>
-          <div class="drop-panel">
-            <a href="#heritage">Наследие</a>
-            <a href="#editions">Издания</a>
-          </div>
-        </details>
-        <details class="drop" name="site-menu">
-          <summary>Разделы</summary>
-          <div class="drop-panel">
-            <a href="#lounge">Курилка</a>
-            <a href="#contacts">Контакты</a>
-          </div>
-        </details>
+        <a href="#activity">Деятельность</a>
+        <a href="#partners">Партнёры</a>
+        <a href="#help">Помощь</a>
+        <a href="#heritage">Наследие</a>
+        <a href="#editions">Издания</a>
+        <a href="#lounge">Курилка</a>
       </div>
     </nav>
   </header>
@@ -69,7 +40,7 @@
     <section class="hero">
       <div class="mesh" aria-hidden="true"></div>
       <div class="wrap hero-copy">
-        <p class="wordmark">Живая хроника</p>
+        <p class="wordmark">Новости</p>
         <nav class="mast-nav" aria-label="Разделы первого экрана">
           <a href="#activity">Деятельность</a>
           <a href="#partners">Партнёры</a>
@@ -89,7 +60,7 @@
         <article class="cover-sheet">
           <p class="spine">Вестник</p>
           <div>
-            <p class="kicker">Композиция 01</p>
+            <p class="kicker">Выпуск</p>
             <h2>Название публикации</h2>
             <p>Дата публикации. Дата будет добавлена после согласования.</p>
           </div>

@@ -3,7 +3,7 @@
 
   var menuButton = document.querySelector(".nav-toggle");
   var menu = document.querySelector(".site-nav");
-  var media = window.matchMedia("(max-width: 768px)");
+  var media = window.matchMedia("(max-width: 48rem)");
   var lastFocus = null;
   var search = document.querySelector("[data-search]");
   var cards = Array.prototype.slice.call(document.querySelectorAll("[data-card]"));
